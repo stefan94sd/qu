@@ -1,0 +1,23 @@
+Zadatak 1:
+ Trazi se ilustracija coveka u php kodu, ali s obzirom da se za ovu BE Php poziciju traze i vestine kao sto su:
+
+Poznavanje Laravel framework-a, 
+Dobro poznavanje MySQL-a,
+Poželjno je solidno znanje Javasript-a,
+
+shvatio sam da na meni ostaje kako da uklopim sam zahtev zadatka, a da pritom demonstriram i vestine koje trazi pozicija.
+Shodno tome, napravio sam i mini responsive aplikaciju koja primenjuje samu ilustraciju coveka.
+
+Naime, aplikacija se sastoji od login sistema za Bogove, gde u bazi postoje 3 Boga (nisam hteo da se zamaram sa vise jer
+sam mozda i promasio sustinu celog testa), a to su: Alah, Christ (da, i oni su sada Bogovi), one_above_all.
+
+username/pass:
+
+one_above_all/all
+jesus_christ/christianity
+islam
+
+Bogovi mogu da administriraju svoje "ljude", tako sto ih kreiraju i brisu, je l' te. Isus moze da kreira i brise samo
+hriscane, Alah muslimane, a one_above_all sve.
+
+Za izgled aplikacije sam koristio prvi besplatan admin template na koji sam naisao, a to je Sufee Admin.

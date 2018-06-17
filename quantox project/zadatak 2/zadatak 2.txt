@@ -1,0 +1,57 @@
+Left                             Robot 1                                   Robot 2                        Right
+<-- -- -- -- -- -- -- -- -- -- -- *-- -- -- -- -- -- -- -- -- -- -- -- -- -*- -- -- -- -- -- -- -- -- -- ->   
+
+Before we go, let's put a hypothesis that robots carry out an infinite number of instructions.
+Also, we will alter "Preskoci sledeæu instrukciju ako je ispod robota mrlja od ulja (“S”)" with "Preskoci sledeæu instrukciju ukoliko robot zna da je prosao mrlju (“S”)".
+Inittial line allows our robot to skip instruction only in one loop of infinite loops, since he will only once be on top of the spot.
+
+If we define the spot variable as an event in which the robot is on top of the spot, this algorithm wont work, 
+any algorithm wont work.
+
+If we define the spot variable as an event in which the robot has seen the spot, has knowledge of it, than it will work.
+
+infinite loop {
+	if(!spot) // robot has not seen the spot
+		GL x 20
+		GR x 10
+	if (spot) // robot has seen the spot
+		GL x 20
+		S -> skips next instrucion which is GR x 10
+		GR x 10
+} end of loop
+
+Robot 2 will evantually catch up with Robot 1. For the scenarion in which robot 1 catches up with robot 2, 
+we would replace the values for GL and GR instructions.
+
+--------------------------------------some kind of php solution---------------------------------------------------------
+$r1 // robot 1
+$r2 // robot 2
+
+$goToRighM = 10; //number of metters to go right
+$goToLeftM = 20; //number of metters to go left -> by increasing this distance we made them go left
+$spot = false; //no robot has found the spot yet
+
+$r1->goLeft// instruction to go left for stated number of metters
+$r2->goLeft
+$r1->goRight instruction to go right for stated number of metters
+$r2->goRight
+
+$r1-registerSpot -> this insturction allows robot to register the spot
+$r2-registerSpot
+
+while(1){ // infinite loop, "infinite number of instructions"
+	if(!$spot){ // no robot has found the spot yet (only one robot can find it, since we made them go left, $r2 will find the spot and eventually catch up with $r1)
+		$r1->goLeft
+		$r2->goLeft
+		$r1->goRight
+		$r2->goRight
+		if($r2-registerSpot){ // if our robot register the spot
+			$spot = true; // we make him go faster by not allowing him to go right
+		}
+	}else{
+		$r1->goLeft
+		$r2->goLeft
+		$r1->goRight
+		//we excluded second robot from going right
+	}
+}
